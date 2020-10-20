@@ -31,11 +31,16 @@ Simple RESTful Node.js API
 
 ## Get all reservations
 
+### Query Params
+
+* name (optional): name for reservation
+* date (optional): date of reservation
+
 ### Request
 
 `GET /reservations`
 
-    curl -i -H 'Accept: application/json' http://localhost:3000/reservations
+    curl -i -H 'Accept: application/json' http://localhost:3000/reservations?date=2020-05-28&name=Richardson
 
 ### Response
 
@@ -99,6 +104,10 @@ Simple RESTful Node.js API
     Bad Request
 
 ## Get a reservation by ID
+
+### Path Params
+
+* id (required): Unique integer identifier for reservation
 
 ### Request
 

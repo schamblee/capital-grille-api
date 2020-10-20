@@ -1,5 +1,6 @@
 const express = require('express');
 const { Reservation } = require('./models/index.js');
+const sequelize = require('sequelize');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -30,7 +31,19 @@ app.post('/reservations', jsonParser, async (req, res) => {
 
 // Return all reservations
 app.get('/reservations', (req, res) => {
-    Reservation.findAll({order: [['createTime', 'DESC']]})
+    const query = {where: {}, order: [['createTime', 'DESC']]};
+    const name = req.query.name;
+    const date = req.query.date;
+
+    if (date) {
+        query.where = sequelize.where(sequelize.fn('date', sequelize.col('datetime')), '=', date);
+    }
+
+    if (name) {
+        query.where.name = name;
+    }
+
+    Reservation.findAll(query)
     .then(reservations => {
         res.send({reservations});
     });
