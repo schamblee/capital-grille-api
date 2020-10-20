@@ -47,17 +47,19 @@ Simple RESTful Node.js API
     Date: Tue, 20 Oct 2020 11:40:11 GMT
     Connection: keep-alive
 
-    [
-        {
-            "id": 1,
-            "createTime": "2020-10-20T10:50:48.529Z",
-            "table": 53,
-            "datetime": "2020-05-28T20:30:00.000Z",
-            "numberOfGuests": 2,
-            "name": "Richardson",
-            "phone": "5138899393"
-        }
-    ]
+    {
+        "reservations": [
+            {
+                "id": 1,
+                "createTime": "2020-10-20T10:50:48.529Z",
+                "table": 53,
+                "datetime": "2020-05-28T20:30:00.000Z",
+                "numberOfGuests": 2,
+                "name": "Richardson",
+                "phone": "5138899393"
+            }
+        ]
+    }
 
 ## Create a reservation
 

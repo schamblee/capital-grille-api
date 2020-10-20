@@ -32,7 +32,7 @@ app.post('/reservations', jsonParser, async (req, res) => {
 app.get('/reservations', (req, res) => {
     Reservation.findAll({order: [['createTime', 'DESC']]})
     .then(reservations => {
-        res.send(reservations);
+        res.send({reservations});
     });
 });
 
