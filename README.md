@@ -33,14 +33,14 @@ Simple RESTful Node.js API
 
 ### Query Params
 
-* name (optional): name for reservation
-* date (optional): date of reservation
+* name (optional): filter results by name of reservation
+* date (optional): filter results by date of reservation
 
 ### Request
 
 `GET /reservations`
 
-    curl -i -H 'Accept: application/json' http://localhost:3000/reservations?date=2020-05-28&name=Richardson
+    curl -i -H 'Accept: application/json' http://localhost:3000/reservations
 
 ### Response
 
