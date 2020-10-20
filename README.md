@@ -57,7 +57,7 @@ Simple RESTful Node.js API
     curl -i -H "Accept: application/json" \
         -H "Content-type: application/json" \
         --request POST \
-        -d '{"table": 53,"datetime": "2020-05-28T20:30:00Z","numberOfGuests": 2,,"phone": "5138899393"}' \
+        -d '{"table": 53,"datetime": "2020-05-28T20:30:00Z","numberOfGuests": 2, "name": "Richardson","phone": "5138899393"}' \
         http://localhost:3000/reservations
 
 ### Response
