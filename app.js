@@ -19,11 +19,12 @@ app.post('/reservations', jsonParser, async (req, res) => {
         } = req.body;
         const query = { name, phone, table, datetime, numberOfGuests };
         const reservation = await Reservation.findOrCreate({where: query});
+        res.status(201);
         res.send({id: reservation[0].id});
     } catch (e) {
         // A field is missing from the request body
         console.log(e);
-        res.sendStatus(400);
+        res.status(400).send('Bad Request');
     }
 });
 
@@ -43,13 +44,13 @@ app.get('/reservations/:id', async (req, res) => {
         if (reservation) {
             res.send(reservation);
         } else {
-            // Reservation with given ID is not found
-            res.sendStatus(404).send();
+            // Reservation with given ID does not exist
+            res.status(404).send('Not Found');
         }
     } catch (e) {
         // Provided ID is not an integer
         console.log(e);
-        res.sendStatus(400);
+        res.status(400).send('Bad Request');
     }
 });
 
