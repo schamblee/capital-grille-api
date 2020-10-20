@@ -1,0 +1,23 @@
+{
+  "name": "capital-grille-api",
+  "version": "1.0.0",
+  "description": "Simple Node.js RESTful API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schamblee/capital-grille-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/schamblee/capital-grille-api/issues"
+  },
+  "homepage": "https://github.com/schamblee/capital-grille-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
