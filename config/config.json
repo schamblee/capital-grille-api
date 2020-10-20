@@ -11,6 +11,7 @@
     "password": "fH]YKSD$+[7p`~y,CX}3v)q4/F]QW,J:",
     "database": "capital_grille",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "use_env_variable": "DATABASE_URL"
   }
 }
