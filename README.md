@@ -35,7 +35,7 @@ Simple RESTful Node.js API
 
 `GET /reservations`
 
-    curl -i -H 'Accept: application/json' http://localhost:3000/reservations/
+    curl -i -H 'Accept: application/json' http://localhost:3000/reservations
 
 ### Response
 
