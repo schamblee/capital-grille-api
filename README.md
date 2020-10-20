@@ -12,6 +12,17 @@ Simple RESTful Node.js API
 
     npm install
 
+## Create PostgreSQL DB
+
+    psql -d postgres -U <your machine username>
+    create database capital_grille;
+    create user admin with encrypted password 'fH]YKSD$+[7p`~y,CX}3v)q4/F]QW,J:';
+    grant all privileges on database capital_grille to admin;
+
+## Run DB migration
+
+    npx sequelize-cli db:migrate
+
 ## Run Capital Grille API
 
     npm start
