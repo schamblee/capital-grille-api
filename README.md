@@ -6,7 +6,7 @@ Simple RESTful Node.js API
 
 <https://captial-grille-api.herokuapp.com/reservations>
 
-# Setup
+# Local Setup
 
 ## Install
 
