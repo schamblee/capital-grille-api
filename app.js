@@ -7,7 +7,8 @@ const port = process.env.PORT || 3000;
 
 const jsonParser = bodyParser.json();
 
-app.post('/reservations', jsonParser, (req, res) => {
+// Create a reservation
+app.post('/reservations', jsonParser, async (req, res) => {
     try {
         const {
             name,
@@ -17,23 +18,39 @@ app.post('/reservations', jsonParser, (req, res) => {
             numberOfGuests
         } = req.body;
         const query = { name, phone, table, datetime, numberOfGuests };
-        Reservation.findOrCreate({where: query})
-        .then(([reservation]) => {
-            res.send({id: reservation.id});
-        });
+        const reservation = await Reservation.findOrCreate({where: query});
+        res.send({id: reservation[0].id});
     } catch (e) {
-        res.sendStatus(400).send();
+        // A field is missing from the request body
+        console.log(e);
+        res.sendStatus(400);
     }
 });
 
+// Return all reservations
 app.get('/reservations', (req, res) => {
-    // TODO: Get all reservations
-    res.send({});
+    Reservation.findAll({order: [['createTime', 'DESC']]})
+    .then(reservations => {
+        res.send(reservations);
+    });
 });
 
-app.get('/reservations/:id', (req, res) => {
-    // TODO: Get a reservation by ID
-    res.send({});
+// Return a reservation by ID
+app.get('/reservations/:id', async (req, res) => {
+    try {
+        const id = req.params['id'];
+        const reservation = await Reservation.findByPk(id);
+        if (reservation) {
+            res.send(reservation);
+        } else {
+            // Reservation with given ID is not found
+            res.sendStatus(404).send();
+        }
+    } catch (e) {
+        // Provided ID is not an integer
+        console.log(e);
+        res.sendStatus(400);
+    }
 });
 
 app.listen(port, () => console.log(`Capital Grille API listening on port ${port}`));
