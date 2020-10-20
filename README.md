@@ -1,3 +1,7 @@
+# Capital Grille API
+
+Simple RESTful Node.js API
+
 # Remote API
 
 <https://captial-grille-api.herokuapp.com/reservations>
@@ -12,9 +16,7 @@
 
     npm start
 
-# Capital Grille API
-
-Simple RESTful Node.js API
+# Endpoints
 
 ## Get all reservations
 
